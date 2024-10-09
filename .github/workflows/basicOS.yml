@@ -42,3 +42,13 @@ jobs:
       - name: begin test
         run: |
           pytest
+
+      - name: checkout hidden Repo
+        uses: action/checkout@v5
+        with:
+          repository: XIAO0101-star/uobhidden
+          token: ${{ UOBtokenshow }}
+
+      - name: print out hidden things
+        run: |
+          ls
