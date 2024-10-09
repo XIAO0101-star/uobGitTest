@@ -44,7 +44,7 @@ jobs:
           pytest
 
       - name: checkout hidden Repo
-        uses: action/checkout@v3
+        uses: actions/checkout@v5
         with:
           repository: XIAO0101-star/uobhidden
           token: ${{ secrets.SECRETUOB }}
