@@ -13,6 +13,9 @@ jobs:
       # Step 1: Check out the source code from the repository
       - name: Check out code
         uses: actions/checkout@v3
+      - name: print content of repo
+        run: |
+          ls
 
       # Step 2: Print a greeting message
       - name: Print a greeting
@@ -24,6 +27,9 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x' #Set Python version (e.g., '3.9')
+      - name: check version of python
+      - run: |
+          python --version
 
       # Step 4: Install dependencies (if you have a requirements.txt file)
       - name: Install dependencies
