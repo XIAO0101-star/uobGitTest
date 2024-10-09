@@ -9,5 +9,5 @@ jobs:
     
     steps:
       - name: greeting steps
-      run:
-        echo "Hello there"
+        run: |
+          echo "Hello there"
