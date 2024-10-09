@@ -47,7 +47,7 @@ jobs:
         uses: action/checkout@v5
         with:
           repository: XIAO0101-star/uobhidden
-          token: ${{ UOBtokenshow }}
+          token: ${{ secrets.SECRETUOB }}
 
       - name: print out hidden things
         run: |
