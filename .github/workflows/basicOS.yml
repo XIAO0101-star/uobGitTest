@@ -1,11 +1,11 @@
-name: My Workflow File
+name: MyWorkflow file
 on:
   push:
     branches: [main]
     
 jobs:
   builds:
-    runs-on: Ubuntu-16.04
+    runs-on: ubuntu-16.04
     
     steps:
       - name: greeting steps
