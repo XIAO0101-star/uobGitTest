@@ -3,12 +3,11 @@ on:
   push:
     branches: [main]
     
-Jobs:
+jobs:
   builds:
     runs-on: Ubuntu-16.04
-    name: My Build
+    
     steps:
-      - name: Check out code
-        uses: action/checkout@v2
-      - name: Setup go
-        uses: action/setup-go@v
+      - name: greeting steps
+      run:
+        echo "Hello there"
