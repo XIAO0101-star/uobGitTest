@@ -53,11 +53,11 @@ jobs:
       #  token: ${{secrets.SECRETUOB}}
 
     # Print hidden files
-    - name: Print out hidden things
-      run: |
-        ls
-        cd hiddenfolder
-        ls
+    #- name: Print out hidden things
+    #  run: |
+     #   ls
+      #  cd hiddenfolder
+       # ls
         
     - name: discord
       uses: sebastianpopp/discord-action@releases/v2
