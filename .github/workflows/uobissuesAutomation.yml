@@ -82,4 +82,12 @@ jobs:
       uses: sebastianpopp/discord-action@releases/v2
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
-        message: Hello, Xiao has created index.html. Deployment.yml updated. Please go to https://xiao0101-star.github.io/uobGitTest/ .       
+        message: Hello, Xiao has created index.html. Deployment.yml updated. Please go to https://xiao0101-star.github.io/uobGitTest/ .   
+    
+    - if: ${{ failure() }}
+      name: discord3
+      uses: sebastianpopp/discord-action@releases/v2
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        message: Deployment failed. Please wait for further updates.   
+    
