@@ -70,12 +70,16 @@ jobs:
       with:
         github_token: ${{ secrets.INDEX_TOKEN }}
         publish_dir: ./ # Publish the root directory (where index html is located)
-        webhook: ${{ secrets.DISCORD_WEBHOOK }}
-        message: Xiao, update pending.
-        
-    - if: ${{ success() }}
-      name: discord
+
+    - name: discord1
       uses: sebastianpopp/discord-action@releases/v2
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
-        message: Hello, Xiao has created index.html. Deployment.yml updated.        
+        message: Pending deployment...
+        
+    - if: ${{ success() }}
+      name: discord2
+      uses: sebastianpopp/discord-action@releases/v2
+      with:
+        webhook: ${{ secrets.DISCORD_WEBHOOK }}
+        message: Hello, Xiao has created index.html. Deployment.yml updated. Please go to https://xiao0101-star.github.io/uobGitTest/ .       
