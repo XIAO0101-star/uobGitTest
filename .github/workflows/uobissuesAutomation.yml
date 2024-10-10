@@ -1,64 +1,68 @@
-name: My Second workflow
+name: My Second Workflow
 on:
   pull_request:
     branches: [main]
 
 jobs:
   builds2:
-    # create VM with ubuntu OS
+    # Create VM with Ubuntu OS
     runs-on: ubuntu-20.04
 
     steps:
-    # first step to say hello
-    - name: greeting steps
+    # First step to say hello
+    - name: Greeting steps
       run: |
         echo "Hello there"
         
-    # This is where i checkout my code
-    - name: Checkout my codes
+    # Checkout the code
+    - name: Checkout my code
       uses: actions/checkout@v4
-    - name: print content of repo
+    
+    - name: Print content of repo
       run: |
         ls
 
-    # this is where i install python
+    # Install Python
     - name: Installing Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
-    - name: check version of python
+    
+    - name: Check Python version
       run: |
         python --version
 
-    # installing dependencies if any
-    - name: install dependencies
+    # Install dependencies
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt]; then pip install -r requirements.txt; fi
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install pytest pytest-cov
-    # begin test
+
+    # Run tests with pytest
     - name: Testing with Pytest
       run: |
-        pytest -v -cov --junitxml=report.xml
+        pytest -v --cov --junitxml=report.xml
 
-    # this is where we access the hidden repo
+    # Checkout hidden repo
     - name: Checkout Hidden Repo
       uses: actions/checkout@v4
       with:
-        repository: lowkh/UOBHidden
+        repository: XIAO0101-star/uobhidden
         path: hiddenfolder
         token: ${{secrets.SECRETUOB}}
 
-    # this prints out the hidden files
-    - name: print out hidden things
+    # Print hidden files
+    - name: Print out hidden things
       run: |
         ls
         cd hiddenfolder
         ls
         
+    # Publish test results
     - name: Publish Test Results
       uses: EnricoMi/publish-unit-test-result-action/composite@v2
       if: always()
       with:
-        junit_files: "uobGitTest/report.xml"
+        junit_files: "report.xml"
       
