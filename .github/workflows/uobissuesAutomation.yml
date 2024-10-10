@@ -58,13 +58,7 @@ jobs:
         ls
         cd hiddenfolder
         ls
-        
-    # Publish test results
-    - name: Publish Test Results
-      uses: EnricoMi/publish-unit-test-result-action/composite@v2
-      if: always()
-      with:
-        junit_files: "report.xml"
+    
         
     - name: discord
       uses: sebastianpopp/discord-action@releases/v2
