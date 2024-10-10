@@ -70,10 +70,9 @@ jobs:
       with:
         github_token: ${{ secrets.INDEX_TOKEN }}
         publish_dir: ./ # Publish the root directory (where index html is located)
-
-      # If the workflow succeeds, send a new message
-    - name: Success Message
-      if: success()
+        
+    - if: ${{ success() }}
+      name: discord
       uses: sebastianpopp/discord-action@releases/v2
       with:
         webhook: ${{ secrets.DISCORD_WEBHOOK }}
