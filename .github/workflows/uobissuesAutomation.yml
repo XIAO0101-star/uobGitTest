@@ -42,7 +42,7 @@ jobs:
     # Run tests with pytest
     - name: Testing with Pytest
       run: |
-        pytest -v --cov --junitxml=report.xml
+        pytest
 
     # Checkout hidden repo
     - name: Checkout Hidden Repo
